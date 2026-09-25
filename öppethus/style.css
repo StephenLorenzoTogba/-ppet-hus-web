@@ -1,0 +1,543 @@
+
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    width: auto;
+
+    display: flex;
+    align-items: center;
+
+    z-index: 100;
+
+    background: transparent;
+}
+
+.logo {
+    display: block;
+}
+
+.logo img {
+    width: 75px;
+    height: auto;
+    display: block;
+}
+
+
+/* =========================
+   MENU BUTTON
+========================= */
+
+.menu-button {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid white;
+    border-radius: 50%;
+
+    background: #080808;
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    z-index: 100;
+
+    transition: 0.3s;
+}
+
+.menu-button:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.menu {
+    position: fixed;
+
+    top: 75px;
+    right: 20px;
+
+    padding: 20px;
+
+    background: white;
+    color: black;
+
+    display: none;
+    flex-direction: column;
+
+    gap: 15px;
+
+    z-index: 200;
+
+    min-width: 160px;
+}
+
+.menu.active {
+    display: flex;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    opacity: 0.5;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    padding: 130px 25px 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.small-title,
+.section-label,
+.category {
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    margin-top: 20px;
+
+    font-size: clamp(55px, 16vw, 90px);
+
+    line-height: 0.82;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
+}
+
+.hero h1 span {
+    color: #00E676;
+}
+
+.description {
+    max-width: 330px;
+
+    margin-top: 30px;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   SCROLL BUTTON
+========================= */
+
+.scroll-button {
+    margin-top: 35px;
+
+    width: 100%;
+    max-width: 340px;
+
+    padding: 18px 22px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid white;
+
+    background: transparent;
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.scroll-button:hover {
+    background: white;
+    color: black;
+}
+
+.scroll-button span {
+    font-size: 20px;
+}
+
+
+/* =========================
+   PROGRAM SECTION
+========================= */
+
+.program-section {
+    padding: 100px 20px;
+}
+
+.program-section h2,
+.qr-section h2 {
+    margin-top: 15px;
+
+    font-size: 55px;
+
+    line-height: 0.9;
+
+    letter-spacing: -3px;
+}
+
+.program-section h2 span,
+.qr-section h2 span {
+    color: #FFEB3B;
+}
+
+
+/* =========================
+   PROGRAM CARDS
+========================= */
+
+.program-list {
+    margin-top: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.program-card {
+    min-height: 190px;
+
+    padding: 20px;
+
+    display: grid;
+
+    grid-template-columns: 35px 1fr 30px;
+
+    align-items: center;
+
+    border: 1px solid #333;
+
+    position: relative;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.35s,
+        color 0.35s,
+        background 0.35s;
+}
+
+.program-card:hover {
+    transform: translateX(8px);
+
+    color: #000;
+}
+
+.program-card:active {
+    transform: scale(0.97);
+}
+
+.number {
+    align-self: start;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.program-card h3 {
+    margin-top: 8px;
+
+    font-size: 35px;
+
+    line-height: 0.9;
+
+    letter-spacing: -2px;
+}
+
+.arrow {
+    font-size: 28px;
+}
+
+.category {
+    opacity: 0.7;
+}
+
+
+/* =========================
+   PROGRAM COLORS
+========================= */
+
+.cyan:hover {
+    background: #00FFFF;
+}
+
+.pink:hover {
+    background: #FF0079;
+}
+
+.green:hover {
+    background: #00E676;
+}
+
+.orange:hover {
+    background: #FF8800;
+}
+
+.yellow:hover {
+    background: #FFEB3B;
+}
+
+
+/* =========================
+   QR SECTION
+========================= */
+
+.qr-section {
+    padding: 40px 20px 100px;
+}
+
+.qr-box {
+    padding: 35px 25px;
+
+    border: 1px solid #333;
+
+    background: #111;
+}
+
+.qr-icon {
+    width: 100px;
+    height: 100px;
+
+    margin-bottom: 40px;
+
+    border: 3px solid white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+
+    font-weight: bold;
+}
+
+.qr-box p:not(.section-label) {
+    margin-top: 25px;
+
+    line-height: 1.5;
+}
+
+.qr-box button {
+    margin-top: 30px;
+
+    width: 100%;
+
+    padding: 18px;
+
+    border: none;
+
+    background: white;
+    color: black;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.qr-box button:hover {
+    transform: scale(1.02);
+}
+
+
+/* =========================
+   QR SCANNER
+========================= */
+
+#scanner-container {
+    display: none;
+
+    margin-top: 30px;
+}
+
+#reader {
+    width: 100%;
+
+    max-width: 400px;
+
+    margin: auto;
+
+    overflow: hidden;
+
+    border: 2px solid white;
+}
+
+#reader video {
+    width: 100% !important;
+
+    height: auto !important;
+}
+
+.stop-button {
+    margin-top: 15px !important;
+
+    background: transparent !important;
+
+    color: white !important;
+
+    border: 1px solid white !important;
+}
+
+
+/* =========================
+   PROGRAM MODAL
+========================= */
+
+.program-modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.8);
+
+    backdrop-filter: blur(10px);
+
+    display: none;
+
+    align-items: flex-end;
+
+    z-index: 500;
+}
+
+.program-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+
+    min-height: 55vh;
+
+    padding: 35px 25px;
+
+    background: #111;
+
+    border-top: 2px solid white;
+}
+
+.modal-content h2 {
+    margin-top: 15px;
+
+    font-size: 55px;
+
+    line-height: 0.9;
+
+    letter-spacing: -3px;
+}
+
+.modal-content p:not(.section-label) {
+    margin-top: 25px;
+
+    line-height: 1.5;
+}
+
+.close {
+    float: right;
+
+    border: none;
+
+    background: none;
+
+    color: white;
+
+    font-size: 35px;
+
+    cursor: pointer;
+}
+
+.modal-content button {
+    margin-top: 30px;
+
+    width: 100%;
+
+    padding: 18px;
+
+    border: none;
+
+    background: white;
+
+    color: black;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .logo img {
+        width: 65px;
+    }
+
+    .hero {
+```

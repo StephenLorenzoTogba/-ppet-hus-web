@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LBS Öppet Hus</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <img src="LBS_Logotyp_RGB_Vit_Transparent.png" alt="LBS">
+        </a>
+
+        <button class="menu-button" onclick="toggleMenu()">
+            ☰
+        </button>
+    </header>
+
+    <div class="menu" id="menu">
+        <a href="#program">Program</a>
+        <a href="#about">Om LBS</a>
+        <a href="#contact">Kontakt</a>
+    </div>
+
+
+    <main>
+
+        <section class="hero">
+
+            <p class="small-title">LBS LUND · ÖPPET HUS</p>
+
+            <h1>
+                UPPTÄCK<br>
+                <span>DIN FRAMTID.</span>
+            </h1>
+
+            <p class="description">
+                Skanna QR-koderna runt skolan och upptäck
+                vad eleverna arbetar med på varje program.
+            </p>
+
+            <button class="scroll-button" onclick="scrollToPrograms()">
+                UTFORSKA PROGRAM
+                <span>↓</span>
+            </button>
+
+        </section>
+
+
+        <section id="program" class="program-section">
+
+            <p class="section-label">VÄLJ ETT PROGRAM</p>
+
+            <h2>
+                Vad vill<br>
+                <span>du skapa?</span>
+            </h2>
+
+
+            <div class="program-list">
+
+
+                <div class="program-card cyan"
+                     onclick="openProgram('Foto och film')">
+
+                    <div class="number">01</div>
+
+                    <div>
+                        <p class="category">MEDIA</p>
+                        <h3>Foto<br>& film</h3>
+                    </div>
+
+                    <div class="arrow">↗</div>
+
+                </div>
+
+
+                <div class="program-card pink"
+                     onclick="openProgram('Grafisk design')">
+
+                    <div class="number">02</div>
+
+                    <div>
+                        <p class="category">DESIGN</p>
+                        <h3>Grafisk<br>design</h3>
+                    </div>
+
+                    <div class="arrow">↗</div>
+
+                </div>
+
+
+                <div class="program-card green"
+                     onclick="openProgram('Musikproduktion')">
+
+                    <div class="number">03</div>
+
+                    <div>
+                        <p class="category">MUSIK</p>
+                        <h3>Musik-<br>produktion</h3>
+                    </div>
+
+                    <div class="arrow">↗</div>
+
+                </div>
+
+
+                <div class="program-card orange"
+                     onclick="openProgram('Spelgrafik')">
+
+                    <div class="number">04</div>
+
+                    <div>
+                        <p class="category">SPEL</p>
+                        <h3>Spel-<br>grafik</h3>
+                    </div>
+
+                    <div class="arrow">↗</div>
+
+                </div>
+
+
+                <div class="program-card yellow"
+                     onclick="openProgram('Spelutveckling')">
+
+                    <div class="number">05</div>
+
+                    <div>
+                        <p class="category">TECH</p>
+                        <h3>Spel-<br>utveckling</h3>
+                    </div>
+
+                    <div class="arrow">↗</div>
+
+                </div>
+
+
+                <div class="program-card yellow"
+                     onclick="openProgram('AI & webbutveckling')">
+
+                    <div class="number">06</div>
+
+                    <div>
+                        <p class="category">TECH</p>
+                        <h3>AI & webb-<br>utveckling</h3>
+                    </div>
+
+                    <div class="arrow">↗</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        
+
+
+   <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
+
