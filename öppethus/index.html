@@ -62,107 +62,128 @@
                 <span>du skapa?</span>
             </h2>
 
+<button class="scan-button" onclick="startScan()">
+    SKANNA →
+</button>
 
-            <div class="program-list">
+<div id="scanner-container">
+    <div id="reader"></div>
 
+    <button class="stop-button" onclick="stopScan()">
+        STÄNG SKANNER
+    </button>
+</div>
+           
+<div class="program-list">
 
-                <div class="program-card cyan"
-                     onclick="openProgram('Foto och film')">
+    <div class="program-card cyan"
+         onclick="window.location.href='http://127.0.0.1:5500/%C3%B6ppethus/FotoFilm.html'">
+         
 
-                    <div class="number">01</div>
+        <img src="LBS_Södra_202304_Tryck_25.jpg" alt="Foto och film">
 
-                    <div>
-                        <p class="category">MEDIA</p>
-                        <h3>Foto<br>& film</h3>
-                    </div>
+        <div class="card-info">
+            <p class="category">MEDIA</p>
+            <h3>Foto<br>& film</h3>
+        </div>
 
-                    <div class="arrow">↗</div>
+        <div class="number">01</div>
+        <div class="arrow">↗</div>
 
-                </div>
-
-
-                <div class="program-card pink"
-                     onclick="openProgram('Grafisk design')">
-
-                    <div class="number">02</div>
-
-                    <div>
-                        <p class="category">DESIGN</p>
-                        <h3>Grafisk<br>design</h3>
-                    </div>
-
-                    <div class="arrow">↗</div>
-
-                </div>
+    </div>
 
 
-                <div class="program-card green"
-                     onclick="openProgram('Musikproduktion')">
+    <div class="program-card pink"
+         onclick="openProgram('Grafisk design')">
 
-                    <div class="number">03</div>
+        <img src="LBS_Bilder_Halmstad_Modellavtal till maj 2030_DSC_6402_RED_Digital design.jpg" alt="Grafisk design">
 
-                    <div>
-                        <p class="category">MUSIK</p>
-                        <h3>Musik-<br>produktion</h3>
-                    </div>
+        <div class="card-info">
+            <p class="category">DESIGN</p>
+            <h3>Grafisk<br>design</h3>
+        </div>
 
-                    <div class="arrow">↗</div>
+        <div class="number">02</div>
+        <div class="arrow">↗</div>
 
-                </div>
-
-
-                <div class="program-card orange"
-                     onclick="openProgram('Spelgrafik')">
-
-                    <div class="number">04</div>
-
-                    <div>
-                        <p class="category">SPEL</p>
-                        <h3>Spel-<br>grafik</h3>
-                    </div>
-
-                    <div class="arrow">↗</div>
-
-                </div>
+    </div>
 
 
-                <div class="program-card yellow"
-                     onclick="openProgram('Spelutveckling')">
+    <div class="program-card green"
+         onclick="openProgram('Musikproduktion')">
 
-                    <div class="number">05</div>
+        <img src="BB160504ACADEMEDIA008.JPG" alt="Musikproduktion">
 
-                    <div>
-                        <p class="category">TECH</p>
-                        <h3>Spel-<br>utveckling</h3>
-                    </div>
+        <div class="card-info">
+            <p class="category">MUSIK</p>
+            <h3>Musik-<br>produktion</h3>
+        </div>
 
-                    <div class="arrow">↗</div>
+        <div class="number">03</div>
+        <div class="arrow">↗</div>
 
-                </div>
+    </div>
 
 
-                <div class="program-card yellow"
-                     onclick="openProgram('AI & webbutveckling')">
+    <div class="program-card orange"
+         onclick="openProgram('Spelgrafik')">
 
-                    <div class="number">06</div>
+        <img src="LBS_Bilder_Halmstad_Modellavtal till maj 2030_DSC_6133_RED.jpg" alt="Spelgrafik">
 
-                    <div>
-                        <p class="category">TECH</p>
-                        <h3>AI & webb-<br>utveckling</h3>
-                    </div>
+        <div class="card-info">
+            <p class="category">SPEL</p>
+            <h3>Spel-<br>grafik</h3>
+        </div>
 
-                    <div class="arrow">↗</div>
+        <div class="number">04</div>
+        <div class="arrow">↗</div>
 
-                </div>
+    </div>
 
-            </div>
+
+    <div class="program-card yellow"
+         onclick="openProgram('Spelutveckling')">
+
+        <img src="lbs-norra202304webb76.jpg" alt="Spelutveckling">
+
+        <div class="card-info">
+            <p class="category">TECH</p>
+            <h3>Spel-<br>utveckling</h3>
+        </div>
+
+        <div class="number">05</div>
+        <div class="arrow">↗</div>
+
+    </div>
+
+
+    <div class="program-card yellow"
+         onclick="openProgram('AI & webbutveckling')">
+
+        <img src="LBS_Bilder_Halmstad_Modellavtal till maj 2030_DSC_6453_RED-2_Spelutvecklling.jpg" alt="AI och webbutveckling">
+
+        <div class="card-info">
+            <p class="category">TECH</p>
+            <h3>AI & webb-<br>utveckling</h3>
+        </div>
+
+        <div class="number">06</div>
+        <div class="arrow">↗</div>
+
+    </div>
+
+</div>
+
+
+
 
         </section>
 
 
         
-
-
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="script.js"></script>
+        
    <script src="https://unpkg.com/html5-qrcode"></script>
     <script src="script.js"></script>
 

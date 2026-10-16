@@ -1,5 +1,5 @@
 
-```css
+
 * {
     margin: 0;
     padding: 0;
@@ -17,10 +17,6 @@ body {
     overflow-x: hidden;
 }
 
-
-/* =========================
-   HEADER
-========================= */
 
 header {
     position: fixed;
@@ -43,15 +39,14 @@ header {
 }
 
 .logo img {
-    width: 75px;
+    width: 250px;
     height: auto;
+
     display: block;
 }
 
 
-/* =========================
-   MENU BUTTON
-========================= */
+
 
 .menu-button {
     position: fixed;
@@ -74,7 +69,7 @@ header {
 
     z-index: 100;
 
-    transition: 0.3s;
+    TRANSITION: 0.3s ease;
 }
 
 .menu-button:hover {
@@ -82,16 +77,13 @@ header {
     color: black;
 }
 
-
-/* =========================
-   MENU
-========================= */
-
 .menu {
     position: fixed;
 
     top: 75px;
     right: 20px;
+
+    min-width: 160px;
 
     padding: 20px;
 
@@ -104,8 +96,6 @@ header {
     gap: 15px;
 
     z-index: 200;
-
-    min-width: 160px;
 }
 
 .menu.active {
@@ -114,11 +104,14 @@ header {
 
 .menu a {
     color: black;
+
     text-decoration: none;
+
+    font-size: 14px;
 
     font-weight: bold;
 
-    transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 .menu a:hover {
@@ -126,9 +119,6 @@ header {
 }
 
 
-/* =========================
-   HERO
-========================= */
 
 .hero {
     min-height: 100vh;
@@ -177,9 +167,7 @@ header {
 }
 
 
-/* =========================
-   SCROLL BUTTON
-========================= */
+
 
 .scroll-button {
     margin-top: 35px;
@@ -190,8 +178,8 @@ header {
     padding: 18px 22px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
     border: 1px solid white;
 
@@ -202,7 +190,7 @@ header {
 
     cursor: pointer;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .scroll-button:hover {
@@ -215,9 +203,7 @@ header {
 }
 
 
-/* =========================
-   PROGRAM SECTION
-========================= */
+
 
 .program-section {
     padding: 100px 20px;
@@ -240,9 +226,7 @@ header {
 }
 
 
-/* =========================
-   PROGRAM CARDS
-========================= */
+
 
 .program-list {
     margin-top: 45px;
@@ -251,99 +235,180 @@ header {
 
     flex-direction: column;
 
-    gap: 12px;
+    gap: 15px;
 }
 
+
+
+
 .program-card {
-    min-height: 190px;
+    position: relative;
 
-    padding: 20px;
+    height: 230px;
 
-    display: grid;
-
-    grid-template-columns: 35px 1fr 30px;
-
-    align-items: center;
+    overflow: hidden;
 
     border: 1px solid #333;
 
-    position: relative;
-
-    overflow: hidden;
+    background: #111;
 
     cursor: pointer;
 
     transition:
-        transform 0.35s,
-        color 0.35s,
-        background 0.35s;
+        transform 0.35s ease,
+        border-color 0.35s ease;
 }
 
-.program-card:hover {
-    transform: translateX(8px);
 
-    color: #000;
+
+
+.program-card img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
 }
 
-.program-card:active {
-    transform: scale(0.97);
+
+
+
+.program-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95),
+        rgba(0, 0, 0, 0.1)
+    );
+
+    z-index: 1;
+
+    transition: background 0.3s ease;
 }
 
-.number {
-    align-self: start;
+
+
+.card-info {
+    position: absolute;
+
+    left: 20px;
+    bottom: 20px;
+
+    z-index: 2;
+}
+
+.card-info h3 {
+    margin-top: 8px;
+
+    font-size: 38px;
+
+    line-height: 0.9;
+
+    letter-spacing: -2px;
+
+    font-weight: 900;
+}
+
+.category {
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    opacity: 0.8;
+}
+
+
+ 
+
+.program-card .number {
+    position: absolute;
+
+    top: 18px;
+    left: 20px;
+
+    z-index: 3;
 
     font-size: 12px;
 
     font-weight: bold;
 }
 
-.program-card h3 {
-    margin-top: 8px;
 
-    font-size: 35px;
 
-    line-height: 0.9;
+.program-card .arrow {
+    position: absolute;
 
-    letter-spacing: -2px;
-}
+    right: 20px;
+    bottom: 18px;
 
-.arrow {
-    font-size: 28px;
-}
+    z-index: 3;
 
-.category {
-    opacity: 0.7;
+    font-size: 30px;
+
+    transition: transform 0.3s ease;
 }
 
 
-/* =========================
-   PROGRAM COLORS
-========================= */
+
+.program-card:hover {
+    transform: scale(1.02);
+}
+
+.program-card:hover img {
+    transform: scale(1.08);
+
+    filter: saturate(1.3);
+}
+
+.program-card:hover .arrow {
+    transform: translate(5px, -5px);
+}
+
+
 
 .cyan:hover {
-    background: #00FFFF;
+    border-color: #00FFFF;
 }
 
 .pink:hover {
-    background: #FF0079;
+    border-color: #FF0079;
 }
 
 .green:hover {
-    background: #00E676;
+    border-color: #00E676;
 }
 
 .orange:hover {
-    background: #FF8800;
+    border-color: #FF8800;
 }
 
 .yellow:hover {
-    background: #FFEB3B;
+    border-color: #FFEB3B;
 }
 
 
-/* =========================
-   QR SECTION
-========================= */
+
+
+.program-card:active {
+    transform: scale(0.97);
+}
+
+
+
 
 .qr-section {
     padding: 40px 20px 100px;
@@ -356,6 +421,9 @@ header {
 
     background: #111;
 }
+
+
+
 
 .qr-icon {
     width: 100px;
@@ -375,11 +443,16 @@ header {
     font-weight: bold;
 }
 
+
+
+
 .qr-box p:not(.section-label) {
     margin-top: 25px;
 
     line-height: 1.5;
 }
+
+
 
 .qr-box button {
     margin-top: 30px;
@@ -397,7 +470,7 @@ header {
 
     cursor: pointer;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .qr-box button:hover {
@@ -405,9 +478,6 @@ header {
 }
 
 
-/* =========================
-   QR SCANNER
-========================= */
 
 #scanner-container {
     display: none;
@@ -429,9 +499,11 @@ header {
 
 #reader video {
     width: 100% !important;
-
     height: auto !important;
 }
+
+
+
 
 .stop-button {
     margin-top: 15px !important;
@@ -444,9 +516,7 @@ header {
 }
 
 
-/* =========================
-   PROGRAM MODAL
-========================= */
+
 
 .program-modal {
     position: fixed;
@@ -468,6 +538,9 @@ header {
     display: flex;
 }
 
+
+
+
 .modal-content {
     width: 100%;
 
@@ -488,6 +561,8 @@ header {
     line-height: 0.9;
 
     letter-spacing: -3px;
+
+    font-weight: 900;
 }
 
 .modal-content p:not(.section-label) {
@@ -495,6 +570,8 @@ header {
 
     line-height: 1.5;
 }
+
+
 
 .close {
     float: right;
@@ -509,6 +586,9 @@ header {
 
     cursor: pointer;
 }
+
+
+
 
 .modal-content button {
     margin-top: 30px;
@@ -529,9 +609,6 @@ header {
 }
 
 
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 480px) {
 
@@ -539,5 +616,132 @@ header {
         width: 65px;
     }
 
+
     .hero {
-```
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    .hero h1 {
+        font-size: 58px;
+
+        letter-spacing: -4px;
+    }
+
+
+    .program-section h2,
+    .qr-section h2 {
+        font-size: 50px;
+    }
+
+
+    .program-card {
+        height: 220px;
+    }
+
+
+    .card-info h3 {
+        font-size: 35px;
+    }
+
+
+    .program-card .arrow {
+        font-size: 26px;
+    }
+}
+
+
+
+
+@media (max-width: 360px) {
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+
+    .program-section h2,
+    .qr-section h2 {
+        font-size: 44px;
+    }
+
+
+    .card-info h3 {
+        font-size: 31px;
+    }
+
+
+    .program-card {
+        height: 200px;
+    }
+}
+
+
+.scan-button {
+    width: 100%;
+    padding: 18px;
+    margin-top: 25px;
+    border: none;
+    background: white;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.scan-button:hover {
+    transform: scale(1.02);
+    background: #00E676;
+}
+
+.scan-button:active {
+    transform: scale(0.97);
+}
+
+.scan-button {
+    width: 100%;
+    padding: 18px;
+    margin-top: 30px;
+    border: none;
+    background: white;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.scan-button:active {
+    transform: scale(0.97);
+}
+
+#scanner-container {
+    display: none;
+    margin-top: 25px;
+}
+
+#scanner-container.active {
+    display: block;
+}
+
+#reader {
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid white;
+}
+
+#reader video {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.stop-button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 16px;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    font-weight: bold;
+}

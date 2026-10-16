@@ -1,78 +1,58 @@
-const menu = document.getElementById("menu");
-const modal = document.getElementById("programModal");
+const programs = {
 
-const title = document.getElementById("programTitle");
-const description = document.getElementById("programDescription");
+    foto: {
+        name: "Foto & film",
+        color: "#00FFFF",
+        description:
+            "Här arbetar du med foto, film, storytelling och visuellt innehåll."
+    },
+
+    grafisk: {
+        name: "Grafisk design",
+        color: "#FF0079",
+        description:
+            "Skapa grafiskt material, illustrationer, branding och digital design."
+    },
+
+    musik: {
+        name: "Musikproduktion",
+        color: "#00E676",
+        description:
+            "Arbeta med musik, ljudproduktion, inspelning och kreativt skapande."
+    },
+
+    spelgrafik: {
+        name: "Spelgrafik",
+        color: "#FF8800",
+        description:
+            "Skapa grafik, miljöer, karaktärer och visuella världar för spel."
+    },
+
+    spelutveckling: {
+        name: "Spelutveckling",
+        color: "#FFEB3B",
+        description:
+            "Lär dig skapa spel med programmering, design och spelmekanik."
+    },
+
+    "ai-webb": {
+        name: "AI & webbutveckling",
+        color: "#FFEB3B",
+        description:
+            "Bygg webbplatser och digitala lösningar och utforska AI."
+    }
+};
+
+
+/* ========================================
+   QR SCANNER
+======================================== */
 
 let scanner = null;
 
-
-/* MENU */
-
-function toggleMenu() {
-    menu.classList.toggle("active");
-}
-
-
-/* SCROLL */
-
-function scrollToPrograms() {
-    document.getElementById("program").scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-
-/* PROGRAM */
-
-function openProgram(program) {
-
-    title.textContent = program;
-
-    const descriptions = {
-
-        "Foto och film":
-            "Här arbetar du med foto, film, storytelling och visuellt innehåll.",
-
-        "Grafisk design":
-            "Skapa grafiskt material, illustrationer, branding och digital design.",
-
-        "Musikproduktion":
-            "Arbeta med musik, ljudproduktion, inspelning och kreativt skapande.",
-
-        "Spelgrafik":
-            "Skapa grafik, miljöer, karaktärer och visuella världar för spel.",
-
-        "Spelutveckling":
-            "Lär dig skapa spel med programmering, design och spelmekanik.",
-
-        "AI & webbutveckling":
-            "Bygg webbplatser och digitala lösningar och utforska hur AI kan användas."
-    };
-
-    description.textContent =
-        descriptions[program] ||
-        "Upptäck vad eleverna arbetar med på programmet.";
-
-    modal.classList.add("active");
-}
-
-
-/* CLOSE PROGRAM */
-
-function closeProgram() {
-    modal.classList.remove("active");
-}
-
-
-/* QR SCANNER */
-
 function startScan() {
 
-    const scannerContainer =
-        document.getElementById("scanner-container");
-
-    scannerContainer.style.display = "block";
+    document.getElementById("scanner-container").style.display = "block";
 
     scanner = new Html5Qrcode("reader");
 
@@ -91,13 +71,11 @@ function startScan() {
 
         function(decodedText) {
 
-            console.log("QR hittad:", decodedText);
-
             stopScan();
 
             /*
                 Om QR-koden innehåller en URL
-                skickas användaren dit.
+                öppnas den.
             */
 
             if (
@@ -109,72 +87,115 @@ function startScan() {
 
             } else {
 
-                showQRCode(decodedText);
+                openProgramFromQR(decodedText);
 
             }
 
         },
 
-        function(errorMessage) {
+        function(error) {
 
-            // Skannern försöker igen.
-            // Vi behöver inte visa felmeddelanden.
+            // Skannern fortsätter leta efter QR-koden
+
         }
     )
     .catch(function(error) {
 
-        console.error("Kunde inte starta kameran:", error);
-
         alert(
-            "Kunde inte öppna kameran. Kontrollera att du har gett sidan tillåtelse att använda kameran."
+            "Kunde inte öppna kameran. Kontrollera kamerabehörigheter."
         );
+
+        console.error(error);
 
     });
 }
 
 
-/* STOP SCANNER */
+/* ========================================
+   STOP SCANNER
+======================================== */
 
 function stopScan() {
 
-    if (scanner) {
-
-        scanner.stop()
-            .then(() => {
-
-                scanner.clear();
-
-                document.getElementById(
-                    "scanner-container"
-                ).style.display = "none";
-
-                scanner = null;
-
-            })
-            .catch(error => {
-
-                console.error(
-                    "Kunde inte stänga skannern:",
-                    error
-                );
-
-            });
-
-    } else {
-
-        document.getElementById(
-            "scanner-container"
-        ).style.display = "none";
+    if (!scanner) {
+        return;
     }
+
+    scanner.stop()
+        .then(function() {
+
+            scanner.clear();
+
+            document.getElementById(
+                "scanner-container"
+            ).style.display = "none";
+
+            scanner = null;
+
+        })
+        .catch(function(error) {
+
+            console.error(error);
+
+        });
 }
 
 
-/* QR RESULT */
+/* ========================================
+   OPEN PROGRAM FROM QR
+======================================== */
 
-function showQRCode(result) {
+function openProgramFromQR(program) {
 
-    alert(
-        "QR-kod hittad:\n\n" + result
-    );
+    program = program.toLowerCase().trim();
 
-}           
+    if (!programs[program]) {
+
+        alert(
+            "QR-koden kunde inte kopplas till ett program."
+        );
+
+        return;
+    }
+
+    const selected = programs[program];
+
+    title.textContent = selected.name;
+
+    description.textContent =
+        selected.description;
+
+    modal.classList.add("active");
+
+    modal.querySelector(".modal-content").style.borderTop =
+        "4px solid " + selected.color;
+}
+
+
+/* ========================================
+   CHECK URL
+======================================== */
+
+function checkURL() {
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const program =
+        params.get("program");
+
+    if (!program) {
+        return;
+    }
+
+    openProgramFromQR(program);
+}
+
+
+/* Kör när sidan laddas */
+
+window.addEventListener("DOMContentLoaded", function() {
+
+    checkURL();
+
+});
