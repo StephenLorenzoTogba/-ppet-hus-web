@@ -1,1 +1,185 @@
 
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LBS Foto & Film</title>
+    <link rel="stylesheet" href="FotoFilm.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="LBS_Logotyp_RGB_Vit_Transparent.png" alt="LBS">
+        </a>
+
+        <button class="menu-button" id="menuButton">☰</button>
+    </header>
+
+    <nav class="menu" id="menu">
+        <a href="index.html">Hem</a>
+        <a href="#gallery">Galleri</a>
+        <a href="#about">Om projekten</a>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <p class="small-title">LBS LUND · FOTO & FILM</p>
+
+            <h1>
+                STUDENT<br>
+                <span>GALLERY.</span>
+            </h1>
+
+            <p class="description">
+                Upptäck elevernas fotografier, filmer och kreativa
+                projekt. Varje verk berättar en egen historia.
+            </p>
+
+            <button class="scroll-button" id="exploreButton">
+                UTFORSKA GALLERIET <span>↓</span>
+            </button>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <p class="section-label">ELEVERNAS KREATIONER</p>
+
+            <h2>
+                Made to<br>
+                <span>be seen.</span>
+            </h2>
+
+            <div class="gallery-toolbar">
+                <p id="projectCount">06 PROJECTS</p>
+
+                <div class="filters">
+                    <button class="filter active" data-filter="all">ALLA</button>
+                    <button class="filter" data-filter="foto">FOTO</button>
+                    <button class="filter" data-filter="film">FILM</button>
+                </div>
+            </div>
+
+            <div class="project-grid">
+
+                <button class="project-card"
+                    data-type="foto"
+                    data-title="Urban Stories"
+                    data-student="Elev 01"
+                    data-image="images/project1.jpg"
+                    data-description="En fotografisk tolkning av livet i staden."
+                    data-link="projects/project1.html">
+
+                    <img src="images/project1.jpg" alt="Urban Stories">
+                    <span class="project-number">01 / FOTO</span>
+                    <span class="project-title">Urban Stories <span>↗</span></span>
+                    <span class="project-student">ELEV 01</span>
+                </button>
+
+                <button class="project-card"
+                    data-type="film"
+                    data-title="Beyond the Frame"
+                    data-student="Elev 02"
+                    data-image="images/project2.jpg"
+                    data-description="En kortfilm om perspektiv och berättande."
+                    data-link="projects/project2.html">
+
+                    <img src="images/project2.jpg" alt="Beyond the Frame">
+                    <span class="project-number">02 / FILM</span>
+                    <span class="project-title">Beyond the Frame <span>↗</span></span>
+                    <span class="project-student">ELEV 02</span>
+                </button>
+
+                <button class="project-card"
+                    data-type="foto"
+                    data-title="Still Life"
+                    data-student="Elev 03"
+                    data-image="images/project3.jpg"
+                    data-description="Ljus, färg och komposition i ett fotografiskt projekt."
+                    data-link="projects/project3.html">
+
+                    <img src="images/project3.jpg" alt="Still Life">
+                    <span class="project-number">03 / FOTO</span>
+                    <span class="project-title">Still Life <span>↗</span></span>
+                    <span class="project-student">ELEV 03</span>
+                </button>
+
+                <button class="project-card"
+                    data-type="film"
+                    data-title="After Hours"
+                    data-student="Elev 04"
+                    data-image="images/project4.jpg"
+                    data-description="En filmisk berättelse skapad av elever."
+                    data-link="projects/project4.html">
+
+                    <img src="images/project4.jpg" alt="After Hours">
+                    <span class="project-number">04 / FILM</span>
+                    <span class="project-title">After Hours <span>↗</span></span>
+                    <span class="project-student">ELEV 04</span>
+                </button>
+
+                <button class="project-card"
+                    data-type="foto"
+                    data-title="Human Nature"
+                    data-student="Elev 05"
+                    data-image="images/project5.jpg"
+                    data-description="Porträtt och natur möts i denna bildserie."
+                    data-link="projects/project5.html">
+
+                    <img src="images/project5.jpg" alt="Human Nature">
+                    <span class="project-number">05 / FOTO</span>
+                    <span class="project-title">Human Nature <span>↗</span></span>
+                    <span class="project-student">ELEV 05</span>
+                </button>
+
+                <button class="project-card"
+                    data-type="film"
+                    data-title="One More Take"
+                    data-student="Elev 06"
+                    data-image="images/project6.jpg"
+                    data-description="Bakom kulisserna i en elevproducerad film."
+                    data-link="projects/project6.html">
+
+                    <img src="images/project6.jpg" alt="One More Take">
+                    <span class="project-number">06 / FILM</span>
+                    <span class="project-title">One More Take <span>↗</span></span>
+                    <span class="project-student">ELEV 06</span>
+                </button>
+
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <p class="section-label">CREATED AT LBS LUND</p>
+            <h2>Ideas into<br><span>reality.</span></h2>
+            <p class="description">
+                Här visas kreativiteten hos elever som utforskar
+                fotografi, film och visuellt berättande.
+            </p>
+        </section>
+
+        <footer>
+            <span>LBS LUND</span>
+            <span>FOTO & FILM © 2026</span>
+        </footer>
+    </main>
+
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Stäng">×</button>
+
+            <p class="section-label" id="modalType">FOTO</p>
+            <div class="modal-image" id="modalImage"></div>
+            <p class="student-label" id="modalStudent">ELEV 01</p>
+            <h2 id="modalTitle">Project title</h2>
+            <p id="modalDescription"></p>
+
+            <button class="modal-open" id="modalOpen">
+                VISA HELA PROJEKTET ↗
+            </button>
+        </div>
+    </div>
+
+    <script src="FotoFilm.js"></script>
+</body>
+</html>
