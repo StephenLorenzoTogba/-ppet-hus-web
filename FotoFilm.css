@@ -1,5 +1,4 @@
 
-
 * {
     margin: 0;
     padding: 0;
@@ -472,4 +471,106 @@ footer {
         transition: none !important;
         scroll-behavior: auto !important;
     }
+}
+
+
+
+.floating-icons {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.float-icon {
+    position: absolute;
+    display: block;
+    color: #00ffff;
+    opacity: 0.65;
+    font-size: 48px;
+    text-shadow: 0 0 18px #00ffff70;
+    will-change: transform;
+    animation: iconFloat 5s ease-in-out infinite;
+}
+
+
+
+.floating-image {
+    position: absolute;
+    width: 125px;
+    height: 155px;
+    object-fit: cover;
+    opacity: 0.65;
+    border: 1px solid #fffb0080;
+    border-radius: 8px;
+
+    animation: photoFloat 6s ease-in-out infinite alternate !important;
+    will-change: transform;
+}
+
+.image-one {
+    top: 17%;
+    left: 4%;
+    --rotation: -10deg;
+}
+
+.image-two {
+    top: 38%;
+    right: 5%;
+    --rotation: 8deg;
+    animation-delay: -2s !important;
+}
+
+.image-three {
+    top: 68%;
+    left: 13%;
+    --rotation: 5deg;
+    animation-delay: -4s !important;
+}
+
+.image-four {
+    top: 13%;
+    right: 23%;
+    --rotation: -6deg;
+    animation-delay: -1s !important;
+}
+
+.image-five {
+    top: 76%;
+    right: 15%;
+    --rotation: 10deg;
+    animation-delay: -3s !important;
+}
+
+.image-six {
+    top: 48%;
+    left: 46%;
+    --rotation: -4deg;
+    animation-delay: -5s !important;
+}
+
+@keyframes photoFloat {
+    from {
+        transform: translateY(0) rotate(var(--rotation, 0deg));
+    }
+
+    to {
+        transform: translateY(-60px) rotate(calc(var(--rotation, 0deg) + 12deg));
+    }
+}
+
+body {
+    position: relative;
+}
+
+header,
+main,
+footer {
+    position: relative;
+    z-index: 3;
+}
+
+.floating-icons {
+    z-index: 2;
 }
