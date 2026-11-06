@@ -30,14 +30,14 @@ menu.querySelectorAll("a").forEach(link => {
         menu.classList.remove("active");
     });
 });
-
+// ai
 exploreButton.addEventListener("click", () => {
     gallery.scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
 });
-
+//ai
 filters.forEach(filter => {
     filter.addEventListener("click", () => {
         filters.forEach(button => button.classList.remove("active"));
