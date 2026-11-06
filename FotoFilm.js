@@ -2,10 +2,10 @@
 const menuButton = document.getElementById("menuButton");
 const menu = document.getElementById("menu");
 
-const exploreButton = document.getElementById("exploreButton");
-const gallery = document.getElementById("gallery");
+const exploreButton = document.getElementById("exploreButton");//ai
+const gallery = document.getElementById("gallery");//ai
 
-const filters = document.querySelectorAll(".filter");
+const filters = document.querySelectorAll(".filter"); // ai
 const cards = document.querySelectorAll(".project-card");
 const projectCount = document.getElementById("projectCount");
 
@@ -60,7 +60,7 @@ filters.forEach(filter => {
             `${String(visibleCount).padStart(2, "0")} PROJECTS`;
     });
 });
-
+// allt med hover card är ai
 function openProject(card) {
     selectedCard = card;
     previousFocus = document.activeElement;
